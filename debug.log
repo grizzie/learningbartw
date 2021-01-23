@@ -1,0 +1,13 @@
+[0123/223425.052:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.058:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.058:ERROR:process_reader_win.cc(123)] NtOpenThread: {拒絕存取} 程序已請求存取一物件，但未被授與存取權。 (0xc0000022)
+[0123/223425.060:ERROR:exception_snapshot_win.cc(99)] thread ID 27952 not found in process
+[0123/223425.097:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.098:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.098:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.098:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.098:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.099:ERROR:process_reader_win.cc(151)] SuspendThread: 存取被拒。 (0x5)
+[0123/223425.099:ERROR:process_reader_win.cc(123)] NtOpenThread: {拒絕存取} 程序已請求存取一物件，但未被授與存取權。 (0xc0000022)
+[0123/223425.099:ERROR:exception_snapshot_win.cc(99)] thread ID 16840 not found in process
+[0123/233042.706:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
