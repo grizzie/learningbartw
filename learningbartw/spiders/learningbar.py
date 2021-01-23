@@ -11,8 +11,6 @@ import selenium
 from selenium.webdriver.support.ui import WebDriverWait
 from scrapy_selenium import SeleniumRequest
 
-k = 0
-
 
 class LearningbarSpider(scrapy.Spider):
     name = 'learningbar'
@@ -73,6 +71,7 @@ class LearningbarSpider(scrapy.Spider):
                     "//option[contains(text(),'Select')]/following-sibling::option"))
                 opts = self.driver.find_elements_by_xpath(
                     "(//option[contains(text(),'Select')]/following-sibling::option)")
+                # 網頁 refresh ，更新opts, 一定要用opts[i]
                 opts[i].click()
 
                 self.driver.find_element_by_xpath(
@@ -93,7 +92,8 @@ class LearningbarSpider(scrapy.Spider):
                 resp = Selector(text=self.html)
                 questions = resp.xpath(
                     '//*[@width="2.25%"]/ancestor::div[@class="col-md-12"]')
-                for j, question in enumerate(questions):
+                for j, questions[j] in enumerate(questions):
+                    question = questions[j]
                     title = question.xpath(
                         './/tbody/tr[1]/td[3]/span/text()').get(),
                     # choices = question.xpath(
@@ -105,24 +105,21 @@ class LearningbarSpider(scrapy.Spider):
                     print(title)
                     details = resp.xpath(
                         "//font[contains(text(),'第')]/ancestor::div[@class='row']")
-                    for k, detail in enumerate(details):
-                        # source = detail.xpath(
-                        #     ".//div[contains(@class,'col-md-7 text-left')]/font/font/text()")
-                        # source = source.xpath('string(.)').extract()[0]
-                        answer = detail.xpath(
-                            ".//div[contains(@class,'col-md-1')]/font[2]/text()").get()
-                        #source = question.find_element_by_xpath('')
+
+                    detail = details[j]
+                    answer = detail.xpath(
+                        ".//div[contains(@class,'col-md-1')]/font[2]/text()").get()
+                    print(answer)
+                    #source = question.find_element_by_xpath('')
                     # yield{
                     #     'title': title,
                     #     # 'choices':choices,
                     #     'source': source,
                     #     'answer': answer,
                     # }
-                        print(answer)
+
                     # print(source)
-                    k += 1
-                    j += 1
-                i += 1
+
             else:
                 self.driver.close()
                 # yield SeleniumRequest(
