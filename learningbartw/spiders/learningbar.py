@@ -92,8 +92,7 @@ class LearningbarSpider(scrapy.Spider):
                 resp = Selector(text=self.html)
                 questions = resp.xpath(
                     '//*[@width="2.25%"]/ancestor::div[@class="col-md-12"]')
-                for j, questions[j] in enumerate(questions):
-                    question = questions[j]
+                for j, question in enumerate(questions):
                     title = question.xpath(
                         './/tbody/tr[1]/td[3]/span/text()').get(),
                     # choices = question.xpath(
@@ -105,9 +104,7 @@ class LearningbarSpider(scrapy.Spider):
                     print(title)
                     details = resp.xpath(
                         "//font[contains(text(),'第')]/ancestor::div[@class='row']")
-
-                    detail = details[j]
-                    answer = detail.xpath(
+                    answer = details[j].xpath(
                         ".//div[contains(@class,'col-md-1')]/font[2]/text()").get()
                     print(answer)
                     #source = question.find_element_by_xpath('')
